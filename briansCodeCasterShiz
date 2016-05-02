@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>AwesomeCo</title>
+  </head>
+  <body>
+    <script>
+/*
+Simple number sorter in JavaScript. Asks for three numbers
+and displays the highest number. Uses a brute force sort
+with IF statements.
+
+Pseudocode:
+
+      Initialize message to ""
+      Initialize numberOne to 0
+      Initialize numberTwo to 0
+      Initialize numberThree to 0
+
+      prompt for numberOne with "What is the first number?"
+      prompt for numberTwo with "What is the second number?"
+      prompt for numberThree with "What is the third number?"
+
+      convert numberOne to a number
+      convert numberTwo to a number
+      convert numberThree to a number
+
+      IF numberOne !== numberTwo && numberTwo !== numberThree && firstNumber !== thirdNumber THEN
+        IF numberOne > numberTwo AND numberOne > numberThree THEN
+           message = numberOne
+        ELSE IF numberTwo > numberThree THEN
+          message = numberTwo
+        ELSE
+          message = numberThree
+        ENDIF
+      ELSE
+        message = "Please ensure all numbers are different"
+      ENDIF
+
+      display message
+ */
+
+      function allNumbersDifferent(one, two, three) {
+        return ( one !== two && two !== three && one !== three );
+      }
+
+      function getBiggestNumber(numberOne, numberTwo, numberThree) {
+        var message = "";
+        if(numberOne > numberTwo && numberOne > numberThree) {
+           message = numberOne;
+        }else if(numberTwo > numberThree){
+          message = numberTwo;
+        }else{
+          message = numberThree;
+        }
+        return message;
+      }
+
+      function main() {
+        var message     = "";
+        var numberOne   = prompt("What is the first number?", 1);
+        var numberTwo   = prompt("What is the second number?", 34);
+        var numberThree = prompt("What is the third number?", 21);
+
+        // Conversion. Because JavaScript.
+        numberOne   = Number(numberOne);
+        numberTwo   = Number(numberTwo);
+        numberThree = Number(numberThree);
+
+        if(allNumbersDifferent(numberOne, numberTwo, numberThree)) {
+          message = getBiggestNumber(numberOne, numberTwo, numberThree);
+        }else{
+          message = "You must enter three different numbers.";
+        }
+        
+        document.write(message);
+      }
+
+      main();
+    </script>
+
+  </body>
+</html>
